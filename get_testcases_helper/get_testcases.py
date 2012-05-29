@@ -5,7 +5,7 @@ from ast import parse, ClassDef, FunctionDef
 _CASES = {}
 
 
-def get_testunits(case):
+def get_units(case):
     units = []
     for node in case.body:
         if isinstance(node, FunctionDef) and node.name.startswith('test_'):
@@ -25,6 +25,7 @@ def read_file(fname):
 
 
 def run(argv):
+    opts = []
     if len(argv) > 1:
         source = read_file(argv[1])
         if source is not None:
@@ -38,16 +39,19 @@ def run(argv):
                 units_for = argv[-1][len(which_prefix):]
                 if '.' in units_for:
                     cname, tname_prefix = units_for.split('.', 1)
-                    for test in get_testunits(_CASES[cname]):
+                    for test in get_units(_CASES[cname]):
                         if test.name.startswith(tname_prefix):
-                            print '%s.%s' % (cname, test.name)
+                            opts.append('%s.%s' % (cname, test.name))
                 else:
                     # Shouldnt reach here
                     pass
             else:
                 for case in _CASES.keys():
-                    print case.name
+                    opts.append(case.name)
+    return opts
 
 
 if __name__ == '__main__':
-    run(sys.argv)
+    opts = run(sys.argv)
+    for opt in opts:
+        print opt
