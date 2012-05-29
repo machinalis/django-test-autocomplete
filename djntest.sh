@@ -24,14 +24,14 @@ _djntest()
                 # cur = TestAutocomplete.
                 # prev = :
                 # preprev = test_file.py
-                tcases=$(get_testcases $PWD/${words[cword-2]} --units=$cur);
+                tcases=$(get_testcases.py $PWD/${words[cword-2]} --units=$cur);
                 ;;
                 * )
                 # <command> test_file.py:TestDo<TAB>
                 # cur = TestDo
                 # prev = :
                 # preprev = test_file.py
-                tcases=$(get_testcases $PWD/${words[cword-2]})
+                tcases=$(get_testcases.py $PWD/${words[cword-2]})
             esac
         fi
     fi

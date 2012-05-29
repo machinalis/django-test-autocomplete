@@ -22,8 +22,8 @@ Later we defined our customized autocompletion for this new command.
 Autocompletion is defined with a lightweight layer of bash code that it's
 invoked each time the user triggers autocompletion (tipically by hitting the
 <TAB> key). Based on the provided arguments, the bash layer decides to call the
-helper python script get_testcases which in turn reads the provided .py file,
-and parse it using the *ast* module.
+helper python script get_testcases.py which in turn reads the provided .py
+file, and parse it using the *ast* module.
 
 
 How to use
