@@ -47,7 +47,7 @@ def run(argv):
                     pass
             else:
                 for case in _CASES.keys():
-                    opts.append(case.name)
+                    opts.append(case)
     return opts
 
 

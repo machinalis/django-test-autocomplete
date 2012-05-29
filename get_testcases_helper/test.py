@@ -1,6 +1,6 @@
 import mock
 import os
-from unittest import TestCase
+from unittest import TestCase, expectedFailure
 
 from get_testcases import run, read_file, get_units
 
@@ -44,6 +44,8 @@ class TestB(TestCase):
         pass
     def test_b2(self):
         pass
+    def test_something_else(self):
+        pass
 class TestC(TestB):
     def test_a1(self):
         pass
@@ -54,12 +56,40 @@ class TestListedCases(TestCase):
 
     def setUp(self):
         self.sample_data = _sample_data
-        self.argv = ['command', self.sample_data]
-
-    def get_printed(self):
-        self.mystdout.seek(0)
-        return self.mystdout.read()
+        self.argv = ['command', 'dummy_filename.py']
+        patcher = mock.patch('get_testcases_helper.get_testcases.read_file')
+        self.read_patcher = patcher.start()
+        self.read_patcher.return_value = _sample_data
+        self.addCleanup(patcher.stop)
 
     def test_classes_listed(self):
         opts = run(self.argv)
-        self.assertEqual('asd', opts)
+        self.assertEqual(set(['TestA', 'TestB', 'TestC']), set(opts))
+
+    def test_units_are_listed(self):
+        argv = self.argv[:]
+        argv.append('--units=TestB.')
+        opts = run(argv)
+        self.assertEqual(set(['TestB.test_b1',
+                              'TestB.test_b2',
+                              'TestB.test_something_else']), set(opts))
+
+    def test_units_are_parcially_listed(self):
+        argv = self.argv[:]
+        argv.append('--units=TestB.test_b')
+        opts = run(argv)
+        self.assertEqual(set(['TestB.test_b1',
+                              'TestB.test_b2']), set(opts))
+
+    def test_empty_units_are_listed(self):
+        argv = self.argv[:]
+        argv.append('--units=TestA.')
+        opts = run(argv)
+        self.assertEqual([], opts)
+
+    @expectedFailure
+    def test_inherited_units_are_listed_too(self):
+        argv = self.argv[:]
+        argv.append('--units=TestC.')
+        opts = run(argv)
+        self.assertIn('TestC.test_b1', set(opts))
