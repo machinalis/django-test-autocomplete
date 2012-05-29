@@ -19,7 +19,7 @@ def read_file(fname):
     if not fname.endswith('.py'):
         fname = fname + '.py'
     try:
-        return file(fname)
+        return file(fname).read()
     except IOError:
         return
 
@@ -28,7 +28,7 @@ def run(argv):
     if len(argv) > 1:
         source = read_file(argv[1])
         if source is not None:
-            data = parse(source.read())
+            data = parse(source)
             for node in data.body:
                 if isinstance(node, ClassDef):
                     _CASES[node.name] = node
