@@ -84,7 +84,8 @@ Alternatively, you can find the djntest.sh file here:
 https://raw.github.com/machinalis/django-test-autocompletion/master/djntest.sh
 
 Extra:
-For running tests you will have to install mock package first.
+For running the internal package tests (if you want to experiment customizing
+or extending this package) you will have to install mock package first.
 
 
 Future features:
