@@ -8,7 +8,7 @@ from distutils.core import setup
 
 setup(
     name='django-test-autocomplete',
-    version='0.1.1',
+    version='0.1.2',
     description=u'A bash-autocomplete helper that list TestCases and tests',
     long_description=__doc__,
     author = u'Javier Mansilla',
@@ -25,5 +25,6 @@ setup(
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
       ],
-    scripts=['djntest', 'get_testcases_helper/get_testcases.py']
+    scripts=['djntest', 'get_testcases_helper/get_testcases.py'],
+    data_files=[('etc/django-test-autocomplete', ['djntest.sh'])]
 )

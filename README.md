@@ -69,7 +69,8 @@ Extract the tarball and run
     $ python setup.py install
 
 2. For enabling the bash autocompletion you need to look for the
-script djntest.sh located in the source distribution, and later:
+script djntest.sh located in the source distribution, and later
+do one of the following:
 
  * inside your $HOME/.bashrc adding a line like this:
 
@@ -80,8 +81,15 @@ script djntest.sh located in the source distribution, and later:
     $ copy path/to/djntest.sh /etc/bash_completion.d/
 
 And later restart your bash session.
-Alternatively, you can find the djntest.sh file here:
-https://raw.github.com/machinalis/django-test-autocomplete/master/djntest.sh
+
+The djntest.sh file can be found:
+
+ * on the source distribution
+
+ * on /etc/django-test-autocomplete/djntest.sh or if working with virtualenv, on
+   $VIRTUAL_ENV/etc/django-test-autocomplete/djntest.sh
+
+ * https://raw.github.com/machinalis/django-test-autocomplete/master/djntest.sh
 
 Extra:
 For running the internal package tests (if you want to experiment customizing
