@@ -19,7 +19,7 @@ _djntest()
         if [[ ! -z $cur ]] && [[ $prev = ":" ]]
             then
             case $cur in
-                *.* )
+                +.* )
                 # <command> test_file.py:TestAutocomplete.<TAB>
                 # cur = TestAutocomplete.
                 # prev = :
