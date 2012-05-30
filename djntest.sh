@@ -14,24 +14,24 @@ _djntest()
         # <command> test_file.py:<TAB>
         # cur = :
         # prev = test_file.py
-        tcases=$(testcases $PWD/$prev)
+        tcases=$(get_testcases.py $prev)
     else
         if [[ ! -z $cur ]] && [[ $prev = ":" ]]
             then
             case $cur in
-                +.* )
+                *.* )
                 # <command> test_file.py:TestAutocomplete.<TAB>
                 # cur = TestAutocomplete.
                 # prev = :
                 # preprev = test_file.py
-                tcases=$(get_testcases.py $PWD/${words[cword-2]} --units=$cur);
+                tcases=$(get_testcases.py ${words[cword-2]} --units=$cur);
                 ;;
                 * )
                 # <command> test_file.py:TestDo<TAB>
                 # cur = TestDo
                 # prev = :
                 # preprev = test_file.py
-                tcases=$(get_testcases.py $PWD/${words[cword-2]})
+                tcases=$(get_testcases.py ${words[cword-2]})
             esac
         fi
     fi

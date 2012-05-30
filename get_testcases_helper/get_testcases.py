@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 import sys
 from ast import parse, ClassDef, FunctionDef
 
@@ -20,6 +21,7 @@ def read_file(fname):
         return
     if not fname.endswith('.py'):
         fname = fname + '.py'
+    fname = os.path.expanduser(os.path.realpath(fname))
     try:
         return file(fname).read()
     except IOError:
