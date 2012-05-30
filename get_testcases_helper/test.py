@@ -2,7 +2,7 @@ import mock
 import os
 from unittest import TestCase, expectedFailure
 
-from get_testcases import run, read_file, get_units
+from get_testcases import run, read_file
 
 
 def examples_folder_path():
@@ -81,9 +81,15 @@ class TestListedCases(TestCase):
         self.assertEqual(set(['TestB.test_b1',
                               'TestB.test_b2']), set(opts))
 
-    def test_empty_units_are_listed(self):
+    def test_empty_units_are_listed_if_nothing(self):
         argv = self.argv[:]
         argv.append('--units=TestA.')
+        opts = run(argv)
+        self.assertEqual([], opts)
+
+    def test_empty_units_are_listed_if_not_testcase(self):
+        argv = self.argv[:]
+        argv.append('--units=TestX.')
         opts = run(argv)
         self.assertEqual([], opts)
 

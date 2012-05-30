@@ -5,9 +5,11 @@ from ast import parse, ClassDef, FunctionDef
 _CASES = {}
 
 
-def get_units(case):
+def _get_units(case_name):
     units = []
-    for node in case.body:
+    if case_name not in _CASES:
+        return units
+    for node in _CASES[case_name].body:
         if isinstance(node, FunctionDef) and node.name.startswith('test_'):
             units.append(node)
     return units
@@ -39,7 +41,7 @@ def run(argv):
                 units_for = argv[-1][len(which_prefix):]
                 if '.' in units_for:
                     cname, tname_prefix = units_for.split('.', 1)
-                    for test in get_units(_CASES[cname]):
+                    for test in _get_units(cname):
                         if test.name.startswith(tname_prefix):
                             opts.append('%s.%s' % (cname, test.name))
                 else:
