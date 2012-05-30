@@ -44,7 +44,7 @@ After a TestCase name, if you a point and trigger autocompletion like this
     $ djntest books_application/tests/test_book_creation.py:TestStore.<TAB>
 
 you will see listed all functions defined inside that class which name starts
-with "test_", and again, with all the usual bash autocompletion features.
+with "test\_", and again, with all the usual bash autocompletion features.
 
 
 Disclaimer Notes:

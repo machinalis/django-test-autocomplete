@@ -1,5 +1,5 @@
+include README.rst
 include README.md
-include README.txt
 include LICENSE
 include djntest.sh
 recursive-include get_testcases_helper

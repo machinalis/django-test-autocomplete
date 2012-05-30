@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-with open('README.md') as readme:
+with open('README.rst') as readme:
     __doc__ = readme.read()
 
 from distutils.core import setup
 
 setup(
     name='django-test-autocomplete',
-    version='0.1',
+    version='0.1.1',
     description=u'A bash-autocomplete helper that list TestCases and tests',
     long_description=__doc__,
     author = u'Javier Mansilla',
