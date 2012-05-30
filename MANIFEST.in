@@ -1,0 +1,4 @@
+include README.md
+include README.txt
+include LICENSE
+recursive-include get_testcases_helper
