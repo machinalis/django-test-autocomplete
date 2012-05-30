@@ -81,7 +81,7 @@ script djntest.sh located in the source distribution, and later:
 
 And later restart your bash session.
 Alternatively, you can find the djntest.sh file here:
-https://raw.github.com/machinalis/django-test-autocompletion/master/djntest.sh
+https://raw.github.com/machinalis/django-test-autocomplete/master/djntest.sh
 
 Extra:
 For running the internal package tests (if you want to experiment customizing

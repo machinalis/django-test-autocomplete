@@ -13,7 +13,7 @@ setup(
     long_description=__doc__,
     author = u'Javier Mansilla',
     author_email = 'jmansilla@machinalis.com',
-    url='https://github.com/machinalis/django-test-autocompletion',
+    url='https://github.com/machinalis/django-test-autocomplete',
     classifiers = [
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
