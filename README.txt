@@ -71,7 +71,7 @@ Extract the tarball and run
 2. For enabling the bash autocompletion you need to look for the
 script djntest.sh located in the source distribution, and later:
 
- * load it inside your $HOME/.bashrc adding a line like this:
+ * inside your $HOME/.bashrc adding a line like this:
 
     source path/to/djntest.sh
 
@@ -79,6 +79,7 @@ script djntest.sh located in the source distribution, and later:
 
     $ copy path/to/djntest.sh /etc/bash_completion.d/
 
+And later restart your bash session
 
 Extra:
 For running tests you will have to install mock package first.
