@@ -79,7 +79,9 @@ script djntest.sh located in the source distribution, and later:
 
     $ copy path/to/djntest.sh /etc/bash_completion.d/
 
-And later restart your bash session
+And later restart your bash session.
+Alternatively, you can find the djntest.sh file here:
+https://raw.github.com/machinalis/django-test-autocompletion/master/djntest.sh
 
 Extra:
 For running tests you will have to install mock package first.
