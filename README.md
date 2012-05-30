@@ -31,7 +31,7 @@ How to use
 
 Located at the root of your django project, typing:
 
-    djntest books_application/tests/test_book_creation.py:<TAB>
+    $ djntest books_application/tests/test_book_creation.py:<TAB>
 
 will list all classes defined in that file, in the standard bash way, ie:
  * if there is only 1 option, it will be automatically completed
@@ -41,7 +41,7 @@ will list all classes defined in that file, in the standard bash way, ie:
 
 After a TestCase name, if you a point and trigger autocompletion like this
 
-    djntest books_application/tests/test_book_creation.py:TestStore.<TAB>
+    $ djntest books_application/tests/test_book_creation.py:TestStore.<TAB>
 
 you will see listed all functions defined inside that class which name starts
 with "test_", and again, with all the usual bash autocompletion features.
@@ -52,6 +52,36 @@ Disclaimer Notes:
 
  * this autocompleter only facilitates the way of invoking the command for
    your running tests. Nothing related with PYTHONPATH is done here.
+
+
+Installation Notes:
+-------------------
+
+In order to install this package you need to follow 2 steps:
+
+1. First install the script
+
+    $ sudo pip install django-test-autocomplete
+
+Alternatively, you can install it from the source distribution:
+Extract the tarball and run
+
+    $ python setup.py install
+
+2. For enabling the bash autocompletion you need to look for the
+script djntest.sh located in the source distribution, and later:
+
+ * load it inside your $HOME/.bashrc adding a line like this:
+
+    source path/to/djntest.sh
+
+ * copy the file into your bash configuration folder like this:
+
+    $ copy path/to/djntest.sh /etc/bash_completion.d/
+
+
+Extra:
+For running tests you will have to install mock package first.
 
 
 Future features:
