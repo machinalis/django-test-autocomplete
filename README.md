@@ -50,8 +50,11 @@ with "test_", and again, with all the usual bash autocompletion features.
 Disclaimer Notes:
 -----------------
 
- * this autocompleter only facilitates the way of invoking the command for
+ * This autocompleter only facilitates the way of invoking the command for
    your running tests. Nothing related with PYTHONPATH is done here.
+ * If your test runner does not support be called with individual tests
+   modules (like django-nose does), then you will have to wait for 0.2 release
+   in order to enjoy this package.
 
 
 Installation Notes:
@@ -105,12 +108,13 @@ Future features:
  * Clear integration with the usual way of running django tests (ie, avoid the need of
    "proxy" command djntest)
  * Try it out with not-only django projects
- * Support for some other shells (zsh will probably be the next)
+ * Support for some other shells (zsh will probably be the next one)
 
 
 Tested with:
 ------------
- * GNU bash, version 4.2.10
- * Django 1.3
- * I'm using together with django-nose without problems. I see no reason for
+ * GNU bash, version 4.1.5+
+ * bash completion 1.1+
+ * Django 1.3+
+ * I'm using it together with django-nose without problems. I see no reason for
    have it not working without nose

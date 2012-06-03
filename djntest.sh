@@ -1,5 +1,37 @@
 # bash completion for running python tests with djntest
 
+
+# if _get_comp_words_by_ref is not defined, lets define it
+# Work *stolen* from git autocomplete
+if ! type _get_comp_words_by_ref >/dev/null 2>&1; then
+_get_comp_words_by_ref ()
+{
+    while [ $# -gt 0 ]; do
+        case "$1" in
+        cur)
+            cur=${COMP_WORDS[COMP_CWORD]}
+            ;;
+        prev)
+            prev=${COMP_WORDS[COMP_CWORD-1]}
+            ;;
+        words)
+            words=("${COMP_WORDS[@]}")
+            ;;
+        cword)
+            cword=$COMP_CWORD
+            ;;
+        -n)
+            # assume COMP_WORDBREAKS is already set sanely
+            shift
+            ;;
+        esac
+        shift
+    done
+}
+fi
+
+
+# And now, here is our autocompletion
 _djntest()
 {
     local cur prev words cword
