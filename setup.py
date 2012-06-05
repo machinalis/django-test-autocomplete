@@ -8,7 +8,7 @@ from distutils.core import setup
 
 setup(
     name='django-test-autocomplete',
-    version='0.1.3',
+    version='0.1.4',
     description=u'A shell-autocomplete helper that list TestCases and tests',
     long_description=__doc__,
     author = u'Javier Mansilla',

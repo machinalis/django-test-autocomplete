@@ -117,4 +117,4 @@ Tested with:
  * bash completion 1.1+
  * Django 1.3+
  * I'm using it together with django-nose without problems. I see no reason for
-   have it not working without nose
+   have it not working without nose.
