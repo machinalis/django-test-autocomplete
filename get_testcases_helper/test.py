@@ -1,6 +1,6 @@
 import mock
 import os
-from unittest import TestCase, expectedFailure
+from unittest import TestCase
 
 from get_testcases import run, read_file
 
@@ -93,7 +93,6 @@ class TestListedCases(TestCase):
         opts = run(argv)
         self.assertEqual([], opts)
 
-    @expectedFailure
     def test_inherited_units_are_listed_too(self):
         argv = self.argv[:]
         argv.append('--units=TestC.')

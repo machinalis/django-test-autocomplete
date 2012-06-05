@@ -13,6 +13,8 @@ def _get_units(case_name):
     for node in _CASES[case_name].body:
         if isinstance(node, FunctionDef) and node.name.startswith('test_'):
             units.append(node)
+    for base in _CASES[case_name].bases:
+        units.extend(_get_units(base.id))
     return units
 
 
