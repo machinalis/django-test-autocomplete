@@ -81,7 +81,7 @@ do one of the following:
 
  * copy the file into your bash configuration folder like this:
 
-    $ copy path/to/djntest.sh /etc/bash_completion.d/
+    $ cp path/to/djntest.sh /etc/bash_completion.d/
 
 And later restart your bash session.
 
